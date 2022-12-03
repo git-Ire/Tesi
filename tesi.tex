@@ -1,0 +1,43 @@
+\input{capitoli/00_configurazione.tex}
+\begin{document}
+\input{capitoli/frontespizio.tex}
+%Citazione e ringraziamenti\\
+%Organizzazione del testo\\
+%Indice, tabelle, figure\\
+%Introduzione\\
+%Capitolo 1\\
+%\dots\\
+%Conclusioni\\
+%Inseriamo una nota\footnote{nota di prova, vediamo se descrizione lunga tutta la riga cosa succede con la linea sopra} \\
+%\textsc{Eventuali appendici}\\
+%\glossario{Glossario}\\
+%Bibliografia\\
+%Fine\\
+
+\frontmatter
+\begingroup
+    %\chapter{Sommario}
+    %\clearpage
+    %\let\cleardoublepage\relax
+    %\chapter{Ringraziamenti}
+    %\clearpage
+    \tableofcontents
+    \clearpage
+    \let\cleardoublepage\relax
+    \listoffigures
+    \clearpage
+    \listoftables
+    \clearpage
+\endgroup
+
+\mainmatter
+\input{capitoli/introduzione.tex}
+\input{capitoli/tecnologie.tex}
+\input{capitoli/requisiti.tex}
+\input{capitoli/progettazione.tex}
+\input{capitoli/sviluppo.tex}
+
+\backmatter
+%\input{capitoli/glossario.tex}
+%%\printglossary[type=main, title=Glossario, toctitle=Glossario]  NON FUNZIONA !!!
+\end{document}

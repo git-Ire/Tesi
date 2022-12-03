@@ -1,0 +1,173 @@
+\chapter{Analisi dei Requisiti}
+Le richieste dei proponenti per le applicazioni sono state suddivise in requisiti funzionali, qualitativi o di vincolo; inoltre sono stati classificati in obbligatori, desiderabili o facoltativi.\\
+La classificazione dei requisiti verrà identificata tramite il seguente codice che viene descritto nella \tablename \space \ref*{tab:Requisiti}.
+\begin{center}
+  \textbf{R[TIPO][PRIORITA'][NUMERO]-[APPLICAZIONE]}
+\end{center}
+
+\renewcommand{\arraystretch}{1.1} %aumento ampiezza righe
+\begin{table}[H]
+\begin{tabular}{ |m{8em}|m{26em}| }
+  \hline
+  \textbf{Nome} & \textbf{Descrizione} \\
+  \hline
+  R & Acronimo di Requisito \\
+  \hline
+  TIPO & Indica il tipo di requisito: \\
+        & \textbf{F}: Requisto funzionale, definizione di una caratteristica necessaria nel software \\
+        &	\textbf{V}: Requisito di vincolo, rappresenta un vincolo avanzato \\
+        &	\textbf{Q}: Requisito di qualità, inerente le regole di qualità \\
+  \hline
+  PRIORITA' & Indica il tipo di priorità: \\
+        &	\textbf{O}: Requisito obbligatorio \\
+        &	\textbf{D}: Requisito desiderabile \\
+        &	\textbf{F}: Requisito facoltativo \\
+  \hline
+  NUMERO & Codice Numerico Identificativo \\
+  \hline
+  APPLICAZIONE & Indica per quale : \\
+               & \textbf{M}: Applicazione per i dati del magazzino \\
+               & \textbf{IT}: Applicazione per il personale information technology \\
+               & \textbf{OR}: Applicazione per l'inserimento richieste ordini \\
+  \hline
+\end{tabular}
+\caption{Classificazione requisiti}
+\label{tab:Requisiti}
+\end{table}
+
+\renewcommand{\arraystretch}{1.3} %aumento ampiezza righe
+\section{Applicazione per i dati del magazzino}
+L'applicazione per i dati del magazzino ha lo scopo di agevolare gli operatori nella visualizzazione delle informazioni di un articolo. Recuperati dal database sul server i dati vengono resi visualizzabili in un'applicazione per qualsiasi dispositivo. \\
+Nella \tablename \space \ref*{tab:Requisiti-M} sono presentati i requisiti di questa applicazione.
+\begin{table}[H]
+  \begin{tabular}{ |m{6em}|m{28em}| }
+    \hline
+    \textbf{Codice} & \textbf{Descrizione requisito} \\
+    \hline
+    \textbf{RFO01-M} & Applicazione sviluppata per smartphone e tablet \\
+    \hline
+    \textbf{RFO02-M} & Sincronizzazione frequente con il sistema aziendale \glossario{ERP} \\
+    \hline
+    \textbf{RFO03-M} & La lettura del codice articolo tramite scannerizzazione \\
+    \hline
+    \textbf{RFO04-M} & Elenco delle informazioni obbligatorie da visualizzare:
+          \begin{itemize}
+          \begin{spacing}{1.0}
+            \item descrizione dell'articolo;
+            \item giacenza totale;
+            \item quantità ordinata;
+            \item quantità scaffale;
+            \item operatore che acquista;
+            \item fornitore;
+            \item messaggio;
+            \item tipo di locazione;
+            \item locazione.
+          \end{spacing}
+          \end{itemize}\\
+    \hline
+    \textbf{RFD05-M} & Elenco delle informazioni desiderabili da visualizzare:
+          \begin{itemize}
+          \begin{spacing}{1.0}
+            \item scorta minima;
+            \item giacenza specifica per locazione.
+          \end{spacing}
+          \end{itemize} \\
+    \hline
+    \textbf{RVO01-M} & Applicazione sviluppata in ambiente Microsoft con \glossario{Power Apps} \\
+    \hline
+    \textbf{RQO01-M} & Ricevere la risposta dal database entro 5 secondi \\
+    \hline
+    \textbf{RQD02-M} & Applicazione sviluppata in un'unica schermata \\
+    \hline
+  \end{tabular}
+\caption{Classificazione requisiti dell'applicazione dati del magazzino}
+\label{tab:Requisiti-M}
+\end{table}
+
+
+\renewcommand{\arraystretch}{1.5} %aumento ampiezza righe
+\section{Applicazione per il personale IT}
+Lo scopo dell’applicazione è registrare le attività giornaliere effettuate dai dipendenti dell'information technology.\\
+La visualizzazione grafica permette di valutare le migliori strategie, bilanciamento e organizzazione da adottare nel futuro prossimo. 
+E' importante analizzare principalmente l’ultimo periodo e non tutto lo storico delle attività registrate.\\
+I requisiti dell'applicazione sono presentati e classificati mediante la \tablename \space \ref*{tab:Requisiti-IT}. 
+\begin{table}[H]
+  \begin{tabular}{ |m{6em}|m{28em}| }
+    \hline
+    \textbf{Codice} & \textbf{Descrizione requisito} \\
+    \hline
+    \textbf{RFO01-IT} & Inserimento dell’attività specificando per quale organizzazione \\
+    \hline
+    \textbf{RFO02-IT} & Divieto di inserimento anticipato di attività future \\
+    \hline
+    \textbf{RFO03-IT} & Modifica ed eliminazione solo delle proprie attività \\
+    \hline
+    \textbf{RFO04-IT} & Eliminazione automatica degli inserimenti di oltre un anno prima \\
+    \hline
+    \textbf{RFD05-IT} & Filtri nella visualizzazione grafica dei dati \\
+    \hline
+    \textbf{RVO01-IT} & Applicazione sviluppata in ambiente Microsoft \\
+    \hline
+    \textbf{RVO02-IT} & La raccolta dei dati tramite \glossario{Microsoft Lists} \\
+    \hline
+    \textbf{RVO03-IT} & Visualizzazione grafica dei dati in \glossario{Power Bi} \\
+    \hline
+    \textbf{RQD01-IT} & Schermata home di benvenuto nell’applicazione \\
+    \hline
+    \textbf{RQF02-IT} & Filtri per agevolare la ricerca delle proprie attività inserite \\
+    \hline
+  \end{tabular}
+\caption{Classificazione requisiti dell'applicazione dati del magazzino}
+\label{tab:Requisiti-IT}
+\end{table}
+\newpage
+
+\renewcommand{\arraystretch}{1.2} %aumento ampiezza righe
+\section{Applicazione per l'inserimento richieste ordini}
+I requisiti dell'applicazione sono presentati e classificati mediante la \tablename \space \ref*{tab:Requisiti-ON}
+  \begin{table}[H]
+    \begin{tabular}{ |m{6em}|m{28em}| }
+      \hline
+      \textbf{Codice} & \textbf{Descrizione requisito} \\
+      \hline
+      \textbf{RFO01-ON} & Applicazione sviluppata principalmente per pc \\
+      \hline
+      \textbf{RFO02-ON} & Visualizzabile lo stato della richiesta e numero ON\tablefootnote{Order Number, sigla interna dell'azienda.} \\
+      \hline
+      \textbf{RFO03-ON} & Elenco delle informazioni da inserire:
+            \begin{itemize}
+            \begin{spacing}{1.0}
+              \item oggetto;
+              \item progetto (menù a tendina);
+              \item costo;
+              \item attendibilità del costo;
+              \item fornitore e codice (menù a tendina);
+              \item data consegna prevista;
+              \item codice conto (menù a tendina);
+              \item quantità;
+              \item note da includere nell'ordine;
+              \item allegati.
+            \end{spacing}
+            \end{itemize}\\
+      \hline
+      \textbf{RFO04-ON} & Avvio automatico del ciclo di approvazione\\
+      \hline
+      \textbf{RFO05-ON} & Dopo l'approvazione in automatico mail al segretario\\
+      \hline
+      \textbf{RFO06-ON} & Il segretario inserisce il numero di riferimento dell'ordine (ON)\\
+      \hline
+      \textbf{RFO07-ON} & Solo approvatore e segretario possono modificare le richiesta\\
+      \hline
+      \textbf{RFD08-ON} & Nell'applicazione siano visualizzabili solo le proprie richieste\\
+      \hline
+      \textbf{RQO01-ON} & Inserimento della richiesta in modo agevole \\
+      \hline
+      \textbf{RQO02-ON} & Il richiedente viene costantemente aggiornato durante il ciclo\\
+      \hline
+      \textbf{RQD03-ON} & Nella mail inviata all'approvatore siano presenti direttamente i tasti per approvare o rifiutare una richiesta\\
+      \hline
+    \end{tabular}
+  \caption{Classificazione requisiti dell'applicazione per l'inserimento richieste ordini}
+  \label{tab:Requisiti-ON}
+  \end{table}
+  \renewcommand{\arraystretch}{1.5} %aumento ampiezza righe

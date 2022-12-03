@@ -1,0 +1,122 @@
+% PDF/A filecontents
+\RequirePackage{filecontents}
+\begin{filecontents*}{\jobname.xmpdata}
+  \Title{Document’s title}
+  \Author{Author’s name}
+  \Language{it-IT}
+  \Subject{The abstract, or short description.}
+  \Keywords{keyword1\sep keyword2\sep keyword3}
+\end{filecontents*}
+
+\documentclass[12pt,                    % corpo del font principale
+               a4paper,                 % carta A4
+               twoside,                 % impagina per fronte-retro
+               openright,               % inizio capitoli a destra
+               english,                 
+               italian,                 
+               ]{book}    
+
+%**************************************************************
+% Importazione package
+%************************************************************** 
+
+\PassOptionsToPackage{dvipsnames}{xcolor} % colori PDF/A
+\usepackage{colorprofiles}
+\usepackage[a-2b,mathxmp]{pdfx}[2023/02/24]    % configurazione PDF/A.    validare in https://www.pdf-online.com/osa/validate.aspx
+%\usepackage{amsmath,amssymb,amsthm}    % matematica
+\usepackage[T1]{fontenc}                % codifica dei font: % NOTA BENE! richiede una distribuzione *completa* di LaTeX
+\usepackage[utf8]{inputenc}             % codifica di input; anche [latin1] va bene % NOTA BENE! va accordata con le preferenze dell'editor
+\usepackage[english, italian]{babel}    % per scrivere in italiano e in inglese; % l'ultima lingua (l'italiano) risulta predefinita
+\usepackage{bookmark}                   % segnalibri
+\usepackage{caption}                    % didascalie
+\usepackage{chngpage,calc}              % centra il frontespizio
+\usepackage{csquotes}                   % gestisce automaticamente i caratteri (")  %guida tesi dice di opzioni [autostyle,italian=guillemets] che servono con biblatex 
+\usepackage{emptypage}                  % pagine vuote senza testatina e piede di pagina
+\usepackage{epigraph}			              % per epigrafi
+\usepackage{eurosym}                    % simbolo dell'euro
+%\usepackage{indentfirst}               % rientra il primo paragrafo di ogni sezione %sotto c'è il comando \parindent impostato a 0 pt
+\usepackage{graphicx}                   % immagini
+\usepackage{hyperref}                   % collegamenti ipertestuali
+\usepackage[binding=7mm]{layaureo}      % margini ottimizzati per l'A4; rilegatura di 5 mm  %IRE: modificata io a 7
+\usepackage{listings}                   % codici
+\usepackage{microtype}                  % microtipografia
+\usepackage{mparhack,fixltx2e,relsize}  % finezze tipografiche
+\usepackage{nameref}                    % visualizza nome dei riferimenti                                      
+\usepackage[font=small]{quoting}        % citazioni
+\usepackage{subfig}                     % sottofigure, sottotabelle
+\usepackage[italian]{varioref}          % riferimenti completi della pagina
+\usepackage{booktabs}                   % tabelle                                       
+\usepackage{tabularx}                   % tabelle di larghezza prefissata                                    
+\usepackage{longtable}                  % tabelle su più pagine                                        
+\usepackage{ltxtable}                   % tabelle su più pagine e adattabili in larghezza
+\usepackage{setspace}                   % IRE spaziatura tra le linee, sotto è scritto il comando singlespacing, onehalfspacing, douplepspacing, libera teoricamente va racchiuso tra begin e end (spacing)(x)
+\usepackage{fancyhdr}                   % IRE Extensive control of page headers and footers
+\usepackage{float}                      % IRE permette di modificare il modo con cui gli ambienti tradizionali vengono composti, introducendo il concetto di stile per questi oggetti ‘galleggianti’ come immagini e tabelle.
+%\usepackage{charter}                   % IRE
+\usepackage{subfig}                     % IRE !!prerequisito pacchetto caption!!  permette di affiancare più figure o tabelle dando a ciascuna una sottodidascalia
+%\usepackage[toc, acronym]{glossaries}   % glossario
+%\usepackage[backend=biber,style=verbose-ibid,hyperref,backref]{biblatex} %bibliografia
+\usepackage{tablefootnote}              % IRE pacchetto per le note in tabella
+
+\hypersetup{
+    %hyperfootnotes=false,
+    %pdfpagelabels,
+    %draft,	% = elimina tutti i link (utile per stampe in bianco e nero)
+    colorlinks=false, %IRE cambiato
+    linktocpage=true,
+    pdfstartpage=1,
+    pdfstartview=,
+    % decommenta la riga seguente per avere link in nero (per esempio per la stampa in bianco e nero)
+    %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=1, pdfstartview=FitV,
+    breaklinks=true,
+    pdfpagemode=UseNone,
+    pageanchor=true,
+    pdfpagemode=UseOutlines,
+    plainpages=false,
+    bookmarksnumbered,
+    bookmarksopen=true,
+    bookmarksopenlevel=1,
+    hypertexnames=true,
+    pdfhighlight=/O,
+    %nesting=true,
+    %frenchlinks,
+    %urlcolor=webbrown, IRE
+    %linkcolor=RoyalBlue, IRE
+    %citecolor=webgreen, IRE
+    %pagecolor=RoyalBlue,
+    %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,
+    pdftitle={\myTitle},
+    pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},
+    pdfsubject={},
+    pdfkeywords={},
+    pdfcreator={pdfLaTeX},
+    pdfproducer={LaTeX}
+}
+%\definecolor{webgreen}{rgb}{0,.5,0} IRE
+%\definecolor{webbrown}{rgb}{.6,0,0} IRE
+\definecolor{footer-gray}{HTML}{808080}
+\onehalfspacing %IRE imposto il pacchetto setspace spaziatura tra le linee: singlespacing, onehalfspacing, douplepspacing
+\parindent=0pt %IRE Rientro della prima riga.
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textcolor{footer-gray}{Tesi}}
+%\lhead{\textcolor{footer-gray}{Sweven Team}}
+\fancyfoot{}
+\rfoot{\textcolor{footer-gray}{\thepage}}
+%\renewcommand*\contentsname{Indice} %%IRE mi sembra inutile, era in Sweven sopra indice e paragrafi
+\setcounter{tocdepth}{5}	%aggiunge paragrafi e sottoparagrafi all'indice
+\setcounter{secnumdepth}{3}	%indica fino a che numero indicizazzare nell'indice con 0.0.xxx (5 indica fino a sottoparagrafi, 3 fino a subsubsection)
+\newcommand{\glossario}[1]{\textit{#1}\textsubscript{\textit{G}}}  %glossario con l'indice basso G                                 
+\newcommand{\myTitle}{Creazione di applicazioni low-code in ambiente Microsoft}
+\newcommand{\myDegree}{Tesi di laurea}
+\newcommand{\myUni}{Università degli Studi di Padova}
+\newcommand{\myFaculty}{Corso di Laurea in Informatica}
+\newcommand{\myDepartment}{Dipartimento di Matematica "Tullio Levi-Civita"}
+\newcommand{\profTitle}{Prof.ssa }
+\newcommand{\myProf}{Ombretta Gaggi}
+\newcommand{\myName}{Irene Benetazzo} %correggere nel frontespizio "laureanda" se femmina
+\newcommand{\myCode}{1223865}
+\newcommand{\myLocation}{Padova}
+\newcommand{\myAA}{2022-2023}
+\newcommand{\myTime}{Febbraio 2023}
+
