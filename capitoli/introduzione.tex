@@ -8,16 +8,21 @@ In provincia di Padova si è sempre lavorato principalmente prodotti per essicca
 L'obiettivo di questo stage è sviluppare due applicazioni mobile su piattaforma Microsoft che offre la possibilità di creare soluzioni low-code.
 Lo scopo delle applicazioni è dare la possibilità ai dipendenti di velocizzare alcune operazioni come la visualizzazione dei dati e la registrazione delle attività svolte in giornata.
 
-\section{Organizzazione e convenzioni del testo}
-La tesi descrive tre applicazioni e di conseguenza i capitoli sono spesso suddivisi in quattro sezioni:
-la prima parte comune, la seconda dedicata all'applicazione per i dati del magazzino, la terza dedicata all'applicazione per il personale dell'information technology (IT) e la quarta dedicata all'applicazione per l'inserimento richieste ordini.\\
-La tesi prevede sette capitoli, di cui il primo è questo cioè l'introduzione in cui si presenta l'azienda, lo stage e i prodotti che verranno sviluppati. \\
-Il \textbf{secondo capitolo} illustra le tecnologie che verranno utilizzate durante lo stage.\\
-Il \textbf{terzo capitolo} identifica i requisiti delle applicazioni classificandoli in funzionali, qualitativi e di vincolo; insieme al proponente e committente si è stabilito se sono obbligatori, desiderabili o facoltativi.\\
-Il \textbf{quarto capitolo} descrive la fase di progettazione delle applicazioni.\\
-Il \textbf{quinto capitolo} descrive la fase di sviluppo delle applicazioni, riportando in dettaglio le parti più significative.\\
-Il \textbf{sesto capitolo} descrive la fase di test ed illustra gli obiettivi raggiunti.\\
-Il \textbf{settimo capitolo} contiene le considerazioni finali sul progetto di stage.\\
+\newpage
+\section{Organizzazione del testo}
+La tesi descrive quattro applicazioni ed è sviluppata in sette capitoli:
+\begin{description}
+  \item[Primo capitolo] introduce presentando l'azienda, lo stage e i prodotti sviluppati.
+  \item[Secondo capitolo] illustra le tecnologie che verranno utilizzate durante lo stage per lo sviluppo dei prodotti.
+  \item[Terzo capitolo] descrive in dettaglio l'applicazione per i dati del magazzino.
+  \item[Quarto capitolo] descrive in dettaglio l'applicazione per il personale dell'ufficio information technology (IT).
+  \item[Quinto capitolo] descrive in dettaglio l'applicazione per l'inserimento richieste ordini da parte dei dipendenti aziendali.
+  \item[Sesto capitolo] descrive in dettaglio l'applicazione per le segnalazioni della produzione.
+  \item[Settimo capitolo] contiene le considerazioni finali sul progetto di stage.    
+\end{description}
+In particolare il terzo, quarto, quinto e sesto capitolo sono ugualmente impostati con al loro interno quattro sezioni: analisi dei requisiti, progettazione, sviluppo, verifica e validazione.
+
+\subsection{Convenzioni tipografiche}
 Nella stesura del documento sono state utilizzate le seguenti convenzioni tipografiche:
 \begin{itemize}
     \item Il pedice G indica che la spiegazione di quel \glossario{termine}, scritto in corsivo, è presente nel glossario.
@@ -25,17 +30,56 @@ Nella stesura del documento sono state utilizzate le seguenti convenzioni tipogr
     \item Il codice e le formule riportate verranno scritte mediante il seguente \texttt{font dattilografico} seguite dalla descrizione in \textit{corsivo}.    
 \end{itemize}
 
+\newpage
+\subsubsection{Legenda Analisi dei Requisiti}
+Le richieste dei proponenti per le applicazioni sono state suddivise in requisiti funzionali, qualitativi o di vincolo; inoltre sono stati classificati in obbligatori, desiderabili o facoltativi.
+La classificazione dei requisiti verrà identificata tramite il seguente codice che viene descritto nella \tablename \space \ref*{tab:Requisiti}.
+\begin{center}
+  \textbf{R[TIPO][PRIORITA'][NUMERO]-[APPLICAZIONE]}
+\end{center}
+\renewcommand{\arraystretch}{1.5} %ampiezza righe
+\begin{table}[bh]
+\begin{tabular}{ |m{8em}|m{26em}| }
+  \hline
+  \textbf{Nome} & \textbf{Descrizione} \\
+  \hline
+  R & Acronimo di Requisito \\
+  \hline
+  TIPO & Indica il tipo di requisito: \\
+        & \textbf{F}: Requisto funzionale, definizione di una caratteristica necessaria nel software \\
+        &	\textbf{V}: Requisito di vincolo, rappresenta un vincolo avanzato \\
+        &	\textbf{Q}: Requisito di qualità, inerente le regole di qualità \\
+  \hline
+  PRIORITA' & Indica il tipo di priorità: \\
+        &	\textbf{O}: Requisito obbligatorio \\
+        &	\textbf{D}: Requisito desiderabile \\
+        &	\textbf{F}: Requisito facoltativo \\
+  \hline
+  NUMERO & Codice Numerico Identificativo \\
+  \hline
+  APPLICAZIONE & Indica per quale applicazione: \\
+               & \textbf{M}: Applicazione per i dati del magazzino \\
+               & \textbf{IT}: Applicazione per il personale information technology \\
+               & \textbf{OR}: Applicazione per l'inserimento richieste ordini \\
+               & \textbf{P}: Applicazione per le segnalazioni della produzione \\
+  \hline
+\end{tabular}
+\caption{Legenda classificazione requisiti}
+\label{tab:Requisiti}
+\end{table}
+
+\newpage
 \section{Applicazione per i dati del magazzino}
 \subsection{Situazione iniziale}
 Gli operatori di magazzino con la semplice necessità di visualizzare alcuni dati, come la locazione di un determinato articolo, devono necessariamente usare un computer per accedere al sistema aziendale \glossario{ERP} che è implementato senza un’interfaccia grafica. 
 Inoltre l’operatore in magazzino non ha un suo computer personale ma è presente soltanto qualche postazione fissa di computer.
-\subsubsection{Enterprise Resource Planning (ERP)}
+\subsubsection{Enterprise Resource Planning (ERP)} \label{tec:ERP}
 ERP è un sistema che si occupa della gestione e pianificazione aziendale delle risorse integrando tutti i moduli aziendali: amministrazione, contabilità, produzione, magazzino, logistica, acquisti, vendite, etc…
 L’avere tutto insieme con una sincronizzazione continua ben organizzata incrementa la produttività, ottimizza la gestione dei materiali e le fasi di produzione, agevolando anche il coordinamento.
 
 \subsection{Obiettivo}
 L'obiettivo è facilitare, modernizzare e velocizzare l’accesso alla visualizzazione dei dati creando un’applicazione installabile in qualsiasi dispositivo mobile (smartphone o tablet). 
-In azienda è già molto utilizzato l’ambiente Microsoft, quindi si è pensato di utilizzare PowerPlatform, in particolare Power Apps.
+In azienda è già molto utilizzato l’ambiente Microsoft, quindi si è pensato di utilizzare \glossario{PowerPlatform}, in particolare \glossario{Power Apps}.
 
 
 \section{Applicazione per il personale IT}
@@ -51,3 +95,12 @@ I dipendenti della sede aziendale inserivano la richiesta dell'ordine direttamen
 \subsection{Obiettivo}
 L'obiettivo è creare un'applicazione per agevolare e modernizzare l'inserimento della richiesta, creare un ciclo per automatizzare le varie fasi per l'approvazione della richiesta di un'ordine.
 
+
+\section{Applicazione per segnalazioni della produzione}
+\subsection{Situazione iniziale}
+Gli operai della sede aziendale quando necessitavano di fare una segnalazione di mancanza di alcuni componenti comunicavano direttamente ai loro capi, a voce o mail, spesso senza fornire i dettagli completi sul prodotto e le informazioni per agevolare la fornitura.\\
+Il report complessivo delle linee di produzione era un solo grafico realizzato in Excel, molto scarno cioè con solo riportato il numero di pezzi versati in magazzino, spesso inesatto e non si aggiornava automaticamente.
+\subsection{Obiettivo}
+L'obiettivo è creare un'applicazione per agevolare le segnalazioni dei componenti mancanti o del tempo perso in extra ciclo su una linea di produzione per un determinato problema.
+L'invio automatico ai responsabili della mail con tutte le relative informazioni al fine di ottimizzare i tempi per la risoluzione del problema o fornitura dei componenti mancanti.\\
+Un altro obiettivo è realizzare una dashboard che riassume lo stato di produttività giornaliero delle linee di produzione con dati corretti e aggiornati frequentemente in modo automatico.
